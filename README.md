@@ -16,6 +16,12 @@ npm install -g generator-yaotv
 yo yaotv
 ```
 
+## 发布
+```bash
+cd project-dir
+node r.js -o build-v1.js
+```
+
 ## TODO LIST
 - [ ] 前端文件更新后自动打包上传到七牛服务器
 - [ ] 更新后刷新cdn缓存
