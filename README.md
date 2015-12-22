@@ -3,7 +3,7 @@
 
 ## 安装
 
-需预先安装[node.js](https://nodejs.org/))、[npm](https://www.npmjs.com/)
+需预先安装[node.js](https://nodejs.org/)、[npm](https://www.npmjs.com/)
 
 ```bash
 npm install -g yo
