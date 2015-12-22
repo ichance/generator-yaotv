@@ -27,11 +27,23 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+  scaffoldFolders: function () {
+    this.mkdir('css');
+    this.mkdir('font');
+    this.mkdir('js');
+    this.mkdir('version');
+  },
+
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
+    this.directory('css');
+    this.directory('font');
+    this.directory('version');
+    this.directory('js');
+    // this.directory('js/app/pages');
+    // this.directory('js/helper');
+    // this.directory('js/lib');
+
+    this.template('index.html', 'index.html');
   },
 
   install: function () {

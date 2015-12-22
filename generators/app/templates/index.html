@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta content='True' name='HandheldFriendly' />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <link rel="dns-prefetch" href="//dn-shaketv.qbox.me/">
+    <title>摇电视</title>
+</head>
+
+<body>
+    <script src="//yaotv.qq.com/shake_tv/include/js/jsapi.js"></script>
+    <script data-main="js/app.js" src="//wximg.gtimg.com/shake_tv/include/js/lib/require.2.1.17.min.js"></script>
+    <script>
+	    version = 'v1';
+
+	    function readTextFile(file) {
+	        var rawFile = new XMLHttpRequest();
+	        rawFile.open("GET", file, false);
+	        rawFile.onreadystatechange = function() {
+	            if (rawFile.readyState === 4) {
+	                if (rawFile.status === 200 || rawFile.status == 0) {
+	                    var allText = rawFile.responseText;
+	                    version = allText;
+	                }
+	            }
+	        };
+	        rawFile.send(null);
+	    }
+
+	    readTextFile("version/version.txt?" + Math.random());
+
+	    document.write('<link rel="stylesheet" href="css/app.css">');
+    </script>
+</body>
+
+</html>
