@@ -1,5 +1,5 @@
 {
-    appDir: "../v1/",
+    appDir: "./",
     baseUrl: 'js',
     paths: {
         app: 'app',
