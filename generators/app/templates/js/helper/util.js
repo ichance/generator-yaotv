@@ -1,5 +1,5 @@
 /**
- * 工具类
+ * 公共函数
  * @author:stuart
  * @link:http://www.shizuwu.cn
  * @time:2015
@@ -32,17 +32,35 @@ define(['jquery', 'config'], function($, config) {
         print: function(msg) {
             console.log(msg);
         },
-        getData: function(url, callback) {
+        track: function(channelId) {
+            var _hmt = _hmt || [];
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?" + config.tjid[channelId - 1];
+            hm.id = "bdtj";
+            if(!document.getElementById(hm.id)) {
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            }
+        },
+        getData: function(url, sucHandler) {
             $.ajax({
-                url: config.apiServer + url,
-                dataType: 'JSONP',
-                async: true,
+                url: config.apiServer + url ,
+                cache: true,
+                async: false,
+                dataType: 'jsonp', 
+                jsonp: 'callback',
                 jsonpCallback: 'callback',
+                crossDomain: true,
+                processData: false,
                 success: function(data) {
-                    callback(data);
+                    sucHandler(data);
                 },
-                error: function(err) {}
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (typeof errorFn !== 'undefined') {
+                        console.log(jqXHR);
+                    }
+                }
             });
         }
-    }
+    };
 });

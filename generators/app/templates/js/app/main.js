@@ -1,13 +1,13 @@
 /**
- * 摇电视 - main
+ * 超级菜单 - main
  * @author stuart
  * @link http://www.shizuwu.cn;
  * @create 2015-12-21
  */
-define(['jquery', 'util', "pages/loading", "pages/menu", 'pages/index', 'pages/jiemu', 'pages/faxian', 'history'], function($, util, loading) {
-	var History = window.History;
+define(['jquery', 'util', "pages/loading", "config", "pages/menu", 'pages/index', 'pages/xiangqing', 'history'], function($, util, loading, config) {
+    var History = window.History;
     var mainApp = {
-        init: function() {
+        init: function(opts) {
             var self = this;
             //设置主框架
             var wrapper = '<div class="wrapper"></div>';
@@ -29,30 +29,43 @@ define(['jquery', 'util', "pages/loading", "pages/menu", 'pages/index', 'pages/j
 
             var State = History.getState();
             History.Adapter.bind(window, 'statechange', function() {
-            	var State = History.getState();
+                var State = History.getState();
                 self.page(State.data.state);
             });
 
             var newPage = $.getVar("page") ? $.getVar("page") : "index";
-            History.pushState({state:newPage}, newPage, "?page=" + newPage);
-            self.page(newPage);
+
+            if(newPage !== State.data.state) {
+                History.pushState({state:newPage}, newPage, "?page=" + newPage);
+            } else {
+                self.page(newPage);
+            }
+
         },
         page: function(page) {
             loading.init();
+            //页面更新，重载百度统计
+            util.track(channelId);
 
             if(typeof page == "undefined") {
-            	page = "index";
+                page = "index";
+            }
+            
+            //设置版权
+            if(!$(".copyright").size()) {
+                $(".menu-bar").before(config.copyRight);
             }
 
             //判断页面类型
-            // if(page.indexOf("-") > 0) {
-            // 	var id = page.substr(page.indexOf("-") + 1);
-            // 	require("pages/xiangqing").init(id);
-            // } else {
-            	$(".menu-bar li[data-page="+page+"]").addClass("active").siblings().removeClass("active");
-            	var newPage = require("pages/" + page);  //只做一个index demo
-            	newPage.init();
-            // }
+            if(page.indexOf("-") > 0) {
+                var id = page.substr(page.indexOf("-") + 1);
+                require("pages/xiangqing").init(id);
+            } else {
+                $(".menu-bar li[data-page="+page+"]").addClass("active").siblings().removeClass("active");
+                var newPage = require("pages/" + page);
+                newPage.init();
+            }
+            $("title").html(config.appName);
         }
     };
 

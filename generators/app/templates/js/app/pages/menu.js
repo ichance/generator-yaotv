@@ -18,18 +18,6 @@ define(['jquery'], function ($) {
 			                    <h4>首页</h4>\
 			                </a>\
 			            </li>\
-			            <li data-page="jiemu">\
-			                <a href="javascript:void(0);">\
-			                    <span class="icon-list"></span>\
-			                    <h4>节目单</h4>\
-			                </a>\
-			            </li>\
-			            <li data-page="faxian">\
-			                <a href="javascript:void(0);">\
-			                    <span class="icon-user"></span>\
-			                    <h4>发现</h4>\
-			                </a>\
-			            </li>\
 			        </ul>\
 			    </div>';
 				$("body").append(menuHtml);

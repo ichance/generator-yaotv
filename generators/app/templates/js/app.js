@@ -27,10 +27,3 @@ requirejs.config({
 requirejs(['jquery', 'util', 'app/main'], function($, util, main) {
     main.init();
 });
-
-// requirejs.onError = function (err) {
-//     if (err.requireType === 'timeout') {
-//         console.log('modules: ' + err.requireModules);
-//     }
-//     throw err;
-// };

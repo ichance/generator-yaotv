@@ -3,6 +3,12 @@
     "baseUrl": "js/lib",
     "dependencies": {
       "jquery": "github:jquery/jquery/2.1.4",
+      "zepto": "github:madrobby/zepto/v1.1.6",
+      "zepto-touch": "github:mmarcinkowski/zepto-touch/1.1.4"
     }
+  },
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-shell": "^0.5.1"
   }
 }

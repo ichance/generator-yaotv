@@ -38,18 +38,41 @@ define(['jquery', 'toucher'], function($, toucher) {
             touch.on('swipeLeft', function(e) {
                 if (self.curpos < (self.count - 1)) {
                     self.curpos++;
-                    self.flush(self.curpos);
+                } else {
+                    self.curpos = 0;
                 }
+                self.flush(self.curpos);
+                clearInterval(self.auto);
+                self.setAuto();
             });
             touch.on('swipeRight', function(e) {
                 if (self.curpos > 0) {
                     self.curpos--;
-                    self.flush(self.curpos);
+                } else {
+                    self.curpos = self.count - 1
                 }
+                self.flush(self.curpos);
+                clearInterval(self.auto);
+                self.setAuto();
             });
 
             self.initData(data);
             return this;
+        },
+
+        setAuto: function() {
+            var self = this;
+            if (self.opts.auto) {
+                clearInterval(self.auto);
+                self.auto = setInterval(function() {
+                    if (self.curpos < (self.count - 1)) {
+                        self.curpos++;
+                    } else {
+                        self.curpos = 0;
+                    }
+                    self.flush();
+                }, self.opts.auto);
+            }
         },
 
         initData: function(data) {
@@ -67,17 +90,7 @@ define(['jquery', 'toucher'], function($, toucher) {
             self.initDots();
             self.flush(self.curpos);
 
-            if (self.opts.auto) {
-                clearInterval(self.auto);
-                self.auto = setInterval(function() {
-                    if (self.curpos < (self.count - 1)) {
-                        self.curpos++;
-                    } else {
-                        self.curpos = 0;
-                    }
-                    self.flush();
-                }, self.opts.auto);
-            }
+            self.setAuto();
         },
 
         /**
