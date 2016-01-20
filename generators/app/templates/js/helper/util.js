@@ -42,25 +42,40 @@ define(['jquery', 'config'], function($, config) {
                 s.parentNode.insertBefore(hm, s);
             }
         },
-        getData: function(url, sucHandler) {
+        parseUrl: function() {
+            return location.search;
+        },
+        getUrl:function(page) {
+            var search = location.search;
+            var params = search.replace(/\?page=\w*[&]?/, "");
+            var url = "?page=" + page;
+            if(params !== "") {
+                url += "&" + decodeURI(params);
+            }
+            return url;
+        },
+        getApi: function(url, sucHandler, errHandler) {
             $.ajax({
-                url: config.apiServer + url ,
+                url: url ,
                 cache: true,
                 async: false,
                 dataType: 'jsonp', 
                 jsonp: 'callback',
                 jsonpCallback: 'callback',
                 crossDomain: true,
-                processData: false,
                 success: function(data) {
                     sucHandler(data);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    if (typeof errorFn !== 'undefined') {
-                        console.log(jqXHR);
-                    }
+                    // if (typeof errorFn !== 'undefined') {
+                    //     console.log(jqXHR);
+                    // }
+                    errHandler();
                 }
             });
+        },
+        getData: function(url, sucHandler) {
+            this.getApi(config.apiServer + url, sucHandler);
         }
     };
 });

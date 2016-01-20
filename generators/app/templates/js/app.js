@@ -16,12 +16,15 @@ requirejs.config({
         jquery: 'lib/jquery.custom',
         toucher: 'lib/touch',
         ready: 'lib/domReady',
+        socketio: 'lib/socket.io',
+        barrage: 'lib/barrage',
         history: 'lib/history'
+    },
+    shim: {
+        'socketio': {
+            exports: 'io'
+        },
     }
-    // ,
-    // shim: {
-    //     'jqtouch': ['jquery']
-    // }
 });
 
 requirejs(['jquery', 'util', 'app/main'], function($, util, main) {

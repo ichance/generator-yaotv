@@ -6,6 +6,7 @@
  */
 define(function (require) {
 	return {
+		appName:"摇电视",
 		cdn: "//your.cdnhost.com/",
 		apiServer: "//you.apihost.com/",
         dataApi: {

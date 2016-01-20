@@ -27,10 +27,11 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   scaffoldFolders: function () {
-    this.mkdir('images');
-    this.mkdir('css');
-    this.mkdir('font');
-    this.mkdir('js');
+    this.mkdirp('images');
+    this.mkdirp('css');
+    this.mkdirp('font');
+    this.mkdirp('js');
+    this.mkdirp('tpl');
   },
 
   writing: function () {
@@ -38,8 +39,11 @@ module.exports = yeoman.generators.Base.extend({
     this.directory('css');
     this.directory('font');
     this.directory('js');
+    this.directory('tpl');
 
     this.template('index.html', 'index.html');
+    this.template('index-src.html', 'index-src.html');
+    this.template('index-build.html', 'index-build.html');
     this.template('bdtjcommon.html', 'bdtjcommon.html');
     this.template('build-v1.js', 'build-v1.js');
     this.template('gulpfile.js', 'gulpfile.js');
