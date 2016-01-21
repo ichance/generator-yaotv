@@ -9,13 +9,13 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the divine ' + chalk.red('generator-yaotv') + ' generator!'
+      '正在使用 ' + chalk.red('generator-yaotv') + ' 创建摇电视脚手架结构'
     ));
 
     var prompts = [{
       type: 'confirm',
       name: 'someOption',
-      message: 'Would you like to enable this option?',
+      message: '是否使用默认配置生成项目结构?',
       default: true
     }];
 
