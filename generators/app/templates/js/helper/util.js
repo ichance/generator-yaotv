@@ -76,6 +76,45 @@ define(['jquery', 'config'], function($, config) {
         },
         getData: function(url, sucHandler) {
             this.getApi(config.apiServer + url, sucHandler);
+        },
+        tvAuthorizeBack : function(appid, appcode, callback) {
+            var returnObj = {};
+
+            shaketv.authorize(config.chatApp.appid, "userinfo", function(d) {
+                if (d.errorCode !== 0) {
+                    //用户取消
+                    if (d.errorCode == -1001) {
+                        returnObj.ret = 1;
+                        returnObj.errorMsg = "用户取消";
+
+                        callback(returnObj);
+                    } else if (d.errorCode == -1002) {
+                        returnObj.ret = 2;
+                        returnObj.errorMsg = "授权窗口打开超时";
+                        callback(returnObj);
+                    } else {
+                        returnObj.ret = 3;
+                        returnObj.errorMsg = d.errorCode + ":" + d.errorMsg + " code:" + d.code;
+                        callback(returnObj);
+                    }
+                } else {
+                    $.ajaxGet(config.oauthServerUrl + "mp.php", {
+                            code: d.code,
+                            app: appcode
+                        }, function(data) {
+                            if (data.status <= 0) {
+                                returnObj.ret = 4;
+                                returnObj.errorMsg = data.error;
+                            } else {
+                                returnObj.ret = 0;
+                                returnObj.errorMsg = "";
+                                returnObj.user = data.info;
+                            }
+                            callback(returnObj); //服务器回调
+                        }
+                    );
+                }
+            });
         }
     };
 });

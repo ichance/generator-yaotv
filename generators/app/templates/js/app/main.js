@@ -29,6 +29,7 @@ define(['jquery', 'util', "pages/loading", "config", 'pages/index', 'history'], 
             } else {
                 self.page(newPage);
             }
+            shaketv.wxShare(config.shareData.img,config.shareData.title,config.shareData.desc,config.shareData.url);
         },
         
         page: function(page) {
