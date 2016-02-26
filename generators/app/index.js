@@ -32,6 +32,7 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir('font');
     this.mkdir('js');
     this.mkdir('tpl');
+    this.mkdir('tools');
   },
 
   writing: function () {
@@ -40,6 +41,7 @@ module.exports = yeoman.generators.Base.extend({
     this.directory('font');
     this.directory('js');
     this.directory('tpl');
+    this.directory('tools');
 
     this.template('index.html', 'index.html');
     this.template('index-src.html', 'index-src.html');
@@ -49,6 +51,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('gulpfile.js', 'gulpfile.js');
     this.template('r.js', 'r.js');
     this.template('package.json', 'package.json');
+    this.template('tools/qn.sh', 'tools/qn.sh');
   },
 
   install: function () {

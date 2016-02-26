@@ -14,6 +14,6 @@ gulp.task('watch', function () {
 gulp.task('build', shell.task([
 	'echo 开始发布任务...',
 	'node r.js -o build-v1.js',
-	// 'tools/qn.sh',
+	'tools/qn.sh',
 	'echo 执行完成'
 ]));
