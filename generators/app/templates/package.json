@@ -2,5 +2,6 @@
   "dependencies": {
     "gulp": "^3.9.0",
     "gulp-shell": "^0.5.1"
+    "gulp-tinypng": "1.0.2"
   }
 }

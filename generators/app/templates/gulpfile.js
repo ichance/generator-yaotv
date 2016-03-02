@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
+var tinypng = require('gulp-tinypng');
 
 var paths = {
   scripts: ['js/**/*', 'css/*', 'font/*']
@@ -9,6 +10,12 @@ gulp.task('watch', function () {
   gulp.watch(paths.scripts, function() {
   	gulp.run('build');
   });
+});
+
+gulp.task('tinypng', function () {
+	gulp.src('images/*')
+		.pipe(tingpng('ncLZ9fxWZOmk0xYfFJtmimsUU5c_GrTO'))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('build', shell.task([
