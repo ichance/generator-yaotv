@@ -23,10 +23,8 @@ node r.js -o build-v1.js
 ```
 
 ## TODO LIST
-- [ ] 前端文件更新后自动打包上传到七牛服务器
-- [ ] 更新后刷新cdn缓存
-- [ ] generator config
-- [ ] generator test
+- [x] 前端文件更新后自动打包上传到七牛服务器
+- [x] 更新后刷新cdn缓存
 
 
 ## 了解yeoman
