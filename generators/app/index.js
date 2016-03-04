@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var mkdirp = require('mkdirp');
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
@@ -27,12 +28,12 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   scaffoldFolders: function () {
-    this.mkdir('images');
-    this.mkdir('css');
-    this.mkdir('font');
-    this.mkdir('js');
-    this.mkdir('tpl');
-    this.mkdir('tools');
+    this.mkdirp('images');
+    this.mkdirp('css');
+    this.mkdirp('font');
+    this.mkdirp('js');
+    this.mkdirp('tpl');
+    this.mkdirp('tools');
   },
 
   writing: function () {
