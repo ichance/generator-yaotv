@@ -28,12 +28,12 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   scaffoldFolders: function () {
-    this.mkdirp('images');
-    this.mkdirp('css');
-    this.mkdirp('font');
-    this.mkdirp('js');
-    this.mkdirp('tpl');
-    this.mkdirp('tools');
+    mkdirp('images');
+    mkdirp('css');
+    mkdirp('font');
+    mkdirp('js');
+    mkdirp('tpl');
+    mkdirp('tools');
   },
 
   writing: function () {
