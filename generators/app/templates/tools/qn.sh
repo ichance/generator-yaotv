@@ -5,7 +5,7 @@ DATADIR="v1-build/";
 BUCKET="yaotv";
 QNHTTP="http://o0vslv5hc.qnssl.com/";
 QNHTTPS="https://o0vslv5hc.qnssl.com/";
-KEYPREFIX="appname/";
+KEYPREFIX="<%= cdn%>/";
 FILES=("css/app.css" "js/app.js" "js/track.js" "font/super.woff");
 LIST='';
 

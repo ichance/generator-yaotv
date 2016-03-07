@@ -12,16 +12,16 @@
     <meta name="x5-fullscreen" content="true" />
     <meta name="360-fullscreen" content="true" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <link rel="dns-prefetch" href="//o0vslv5hc.qnssl.com/">
-    <title>摇电视</title>
+    <link rel="dns-prefetch" href="<%= cdn%>">
+    <title><%= projectName%></title>
 </head>
 
 <body>
     <script src="//yaotv.qq.com/shake_tv/include/js/jsapi.js"></script>
     <script>
-	    document.write('<link rel="stylesheet" href="//o0vslv5hc.qnssl.com/zhaozilong/css/app.css?v' + new Date() +'">');
+	    document.write('<link rel="stylesheet" href="//o0vslv5hc.qnssl.com/<%= cdn%>/css/app.css?v' + new Date() +'">');
 
-        document.write('<script data-main="//o0vslv5hc.qnssl.com/zhaozilong/js/app.js?v='+ new Date() +'" src="//wximg.gtimg.com/shake_tv/include/js/lib/require.2.1.17.min.js"><\/script>');
+        document.write('<script data-main="//o0vslv5hc.qnssl.com/<%= cdn%>/js/app.js?v='+ new Date() +'" src="//wximg.gtimg.com/shake_tv/include/js/lib/require.2.1.17.min.js"><\/script>');
     </script>
 </body>
 

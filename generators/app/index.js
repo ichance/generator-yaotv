@@ -18,10 +18,21 @@ module.exports = yeoman.generators.Base.extend({
       name: 'someOption',
       message: '是否使用默认配置生成项目结构?',
       default: true
+    },{
+      name: 'projectName',
+      message: '项目标题',
+      default: "摇电视"
+    },{
+      name: 'cdn',
+      message: 'CDN 目录名',
+      default: "yaotv"
     }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
+
+      this.projectName = props.projectName;
+      this.cdn = props.cdn;
 
       done();
     }.bind(this));
@@ -44,15 +55,15 @@ module.exports = yeoman.generators.Base.extend({
     this.directory('tpl');
     this.directory('tools');
 
-    this.template('index.html', 'index.html');
-    this.template('index-src.html', 'index-src.html');
-    this.template('index-build.html', 'index-build.html');
-    this.template('bdtjcommon.html', 'bdtjcommon.html');
+    this.template('index.html', {projectName:this.projectName,cdn:this.cdn});
+    this.template('index-src.html', {projectName:this.projectName,cdn:this.cdn});
+    this.template('index-build.html', {projectName:this.projectName,cdn:this.cdn});
+    this.template('bdtjcommon.html', {cdn:this.cdn});
+    this.template('tools/qn.sh', {cdn:this.cdn});
     this.template('build-v1.js', 'build-v1.js');
     this.template('gulpfile.js', 'gulpfile.js');
     this.template('r.js', 'r.js');
     this.template('package.json', 'package.json');
-    this.template('tools/qn.sh', 'tools/qn.sh');
   },
 
   install: function () {
