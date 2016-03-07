@@ -32,11 +32,15 @@ define(['jquery', 'config'], function($, config) {
         print: function(msg) {
             console.log(msg);
         },
-        track: function(channelId) {
+        track: function(channelId, id) {
             var _hmt = _hmt || [];
             var hm = document.createElement("script");
             hm.src = "//hm.baidu.com/hm.js?" + config.tjid[channelId - 1];
-            hm.id = "bdtj";
+            if(typeof id != "undefined") {
+                hm.id = id;
+            } else {
+                hm.id = 'bdtj';
+            }
             if(!document.getElementById(hm.id)) {
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
