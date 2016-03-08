@@ -16,11 +16,34 @@ npm install -g generator-yaotv
 yo yaotv
 ```
 
-## 发布
+## Gulp 命令
 ```bash
 cd project-dir
-node r.js -o build-v1.js
+
+//编译
+
+gulp build
+
+//发布
+
+gulp publish
+
+//一键发布
+
+gulp deploy
+
+//图片压缩
+
+gulp tiny
+
+//打成zip包
+
+gulp zip
+
 ```
+
+## 效果预览
+![yaotv.png](http://ww3.sinaimg.cn/large/68574fffgw1f1pfry2xi5j20gz0lw43v.jpg)
 
 ## TODO LIST
 - [x] 前端文件更新后自动打包上传到七牛服务器
