@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 var tinypng = require('gulp-tinypng');
+var zip = require("gulp-zip");
 
 var paths = {
   scripts: ['js/**/*', 'css/*', 'font/*']
@@ -12,15 +13,31 @@ gulp.task('watch', function () {
   });
 });
 
-gulp.task('tinypng', function () {
+//图片压缩
+gulp.task('tiny', function () {
 	gulp.src('images/*')
-		.pipe(tingpng('ncLZ9fxWZOmk0xYfFJtmimsUU5c_GrTO'))
-		.pipe(gulp.dest('dist'));
+		.pipe(tinypng('ncLZ9fxWZOmk0xYfFJtmimsUU5c_GrTO'))
+		.pipe(gulp.dest('deploy/images'));
 });
 
+//打包
+gulp.task('zip', function () {
+	gulp.src(["index.html", "bdtjcommon.html"], {base: "."})
+		.pipe(zip('<%= projectName%>.zip'))
+		.pipe(gulp.dest('deploy'));
+});
+
+//编译
 gulp.task('build', shell.task([
 	'echo 开始发布任务...',
-	'node r.js -o build-v1.js',
-	'tools/qn.sh',
+	'node r.js -o deploy.js',
 	'echo 执行完成'
 ]));
+
+//发布
+gulp.task('publish', shell.task(
+	['tools/qn.sh']
+));
+
+//一键发布
+gulp.task('deploy', ["build", "publish"]);

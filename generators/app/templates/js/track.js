@@ -6,7 +6,7 @@ function GetQueryString(name) {
 }
 
 //统计代码组      
-var tjid = ['3fa569ffa01a64918cfdd93041d06c51'];
+var tjid = ['<%= tjid%>'];
 
 var _hmt = _hmt || [];
 (function() {
