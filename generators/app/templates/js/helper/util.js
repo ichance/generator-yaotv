@@ -49,6 +49,18 @@ define(['jquery', 'config'], function($, config) {
         parseUrl: function() {
             return location.search;
         },
+        /**
+         * 获取预约配置
+         * @return {[type]} [description]
+         */
+        getReserve:function() {
+            this.getApi("//s3.chancemedia.com.cn:8001/reserve?app=" + config.appcode, function(reserve) {
+                if(typeof reserve.date != "undefined") {
+                    config.tv.reserveid = reserve.reserveid;
+                    config.tv.date = reserve.date;
+                }
+            });
+        },
         getUrl:function(page) {
             var search = location.search;
             var params = search.replace(/\?page=\w*[&]?/, "");

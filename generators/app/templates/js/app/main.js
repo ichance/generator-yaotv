@@ -25,7 +25,7 @@ define(['jquery', 'util', "pages/loading", "config", 'pages/index', 'history'], 
             var newPage = $.getVar("page") ? $.getVar("page") : "index";
 
             if(newPage !== State.data.state) {
-                History.pushState({state:newPage}, newPage, "?page=" + newPage);
+                History.pushState({state:newPage}, config.appName, util.getUrl(newPage));
             } else {
                 self.page(newPage);
             }

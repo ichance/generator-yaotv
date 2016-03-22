@@ -7,6 +7,7 @@
 define(function (require) {
 	return {
 		appName:"<%= projectName%>",
+        appcode: ['<%= cdn%>'],
 		cdn: "//o0vslv5hc.qnssl.com/",
 		apiServer: "//you.apihost.com/",
         oauthServerUrl: '//you.authhost.com/',
@@ -18,7 +19,7 @@ define(function (require) {
             "appname": "appname"
         },
         tv: {
-            "tvid": 50031,
+            "tvid": 10054,
             "reserveid": 98765,
             "date": 20160113
         },

@@ -1,7 +1,7 @@
 #/bin/sh
 # 上传并刷新七牛缓存
 
-DATADIR="v1-build/";
+DATADIR="deploy/";
 BUCKET="yaotv";
 QNHTTP="http://o0vslv5hc.qnssl.com/";
 QNHTTPS="https://o0vslv5hc.qnssl.com/";

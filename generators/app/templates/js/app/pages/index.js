@@ -15,6 +15,19 @@ define(["jquery", "util", "pages/loading", "config", "ready"], function($, util,
             //载入首页数据
             loading.init();
 
+            //全局预约按钮监听
+            util.getReserve();
+            $(".yuyue").on("click", function() {
+                shaketv.reserve_v2({
+                    tvid: config.tv.tvid,
+                    reserveid: config.tv.reserveid,
+                    date: config.tv.date
+                },
+                function(d) {
+                    console.log(d.errorCode + ":" + d.errorMsg);
+                });
+            });
+
             require(['ready'], function(domReady) {
                 domReady(function() {
                     setTimeout(function() {
