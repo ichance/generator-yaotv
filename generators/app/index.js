@@ -21,6 +21,10 @@ module.exports = yeoman.generators.Base.extend({
             message: '百度统计id',
             default: "3fa569ffa01a64918cfdd93041d06c51"
         }, {
+            name: 'cnzz',
+            message: 'CNZZ统计id',
+            default: "1258183883"
+        }, {
             type: "confirm",
             name: 'chat',
             message: '是否带聊天应用',
@@ -84,7 +88,7 @@ module.exports = yeoman.generators.Base.extend({
         this.template('r.js', 'r.js');
 
         //libs
-        this.template('js/app/config.js', { projectName: this.projectName, tjid: this.tjid });
+        this.template('js/app/config.js', { projectName: this.projectName, tjid: this.tjid, cnzz: this.cnzz });
         this.template('js/track.js', { tjid: this.tjid });
 
         if (this.chat) {

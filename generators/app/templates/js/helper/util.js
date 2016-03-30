@@ -46,6 +46,19 @@ define(['jquery', 'config'], function($, config) {
                 s.parentNode.insertBefore(hm, s);
             }
         },
+        cnzz:function(channelId, id) {
+            var cnzz = document.createElement("script");
+            cnzz.src = "//s11.cnzz.com/z_stat.php?id=" + config.cnzztj[channelId - 1] + "&web_id=" + config.cnzztj[channelId - 1];
+            if(typeof id != "undefined") {
+                cnzz.id = id;
+            } else {
+                cnzz.id = 'cnzz';
+            }
+            if(!document.getElementById(cnzz.id)) {
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(cnzz, s);
+            }
+        },
         parseUrl: function() {
             return location.search;
         },

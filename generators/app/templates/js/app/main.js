@@ -36,6 +36,8 @@ define(['jquery', 'util', "pages/loading", "config", 'pages/index', 'history'], 
             loading.init();
             //页面更新，重载百度统计
             util.track(1);
+            //cnzz统计
+            util.cnzz(1);
 
             if(typeof page == "undefined") {
                 page = "index";

@@ -24,6 +24,7 @@ define(function (require) {
             "date": 20160113
         },
         tjid: ['<%= tjid%>'], //统计代码id
+        cnzztj: ['<%= cnzz%>'], //cnzz统计代码id
         copyRight: '<div class="copyright">本页面由东方卫视提供 创祀网络科技技术支持</div>', //版权信息
         shareData:{
             "img":"https://o0exnvnuy.qnssl.com/yaotv/xinhungongyu/static/images/share.png",
