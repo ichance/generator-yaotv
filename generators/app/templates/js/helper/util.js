@@ -63,10 +63,12 @@ define(['jquery', 'config'], function($, config) {
         },
         getUrl:function(page) {
             var search = location.search;
-            var params = search.replace(/\?page=\w*[&]?/, "");
+            var params = search.replace(/\?/, "");
+            params = params.replace(/page=\w*[&]?/, "");
             var url = "?page=" + page;
             if(params !== "") {
-                url += "&" + decodeURI(params);
+                params = decodeURI(params);
+                url += "&" + params;
             }
             return url;
         },
