@@ -89,7 +89,7 @@ module.exports = yeoman.generators.Base.extend({
         this.template('r.js', 'r.js');
 
         //libs
-        this.template('js/app/config.js', { projectName: this.projectName, tjid: this.tjid, cnzz: this.cnzz });
+        this.template('js/app/config.js', { projectName: this.projectName, tjid: this.tjid, cnzz: this.cnzz, cdn: this.cdn });
         this.template('js/track.js', { tjid: this.tjid });
 
         if (this.chat) {
