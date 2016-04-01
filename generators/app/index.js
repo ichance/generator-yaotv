@@ -49,6 +49,7 @@ module.exports = yeoman.generators.Base.extend({
                 self.cdn = props.cdn;
                 self.tjid = props.tjid;
                 self.chat = props.chat;
+                self.cnzz = props.cnzz;
 
                 done();
             }.bind(self));
