@@ -79,7 +79,6 @@ module.exports = yeoman.generators.Base.extend({
         this.template('index.html', { projectName: this.projectName, cdn: this.cdn });
         this.template('index-src.html', { projectName: this.projectName, cdn: this.cdn });
         this.template('index-build.html', { projectName: this.projectName, cdn: this.cdn });
-        this.template('bdtjcommon.html', { cdn: this.cdn });
 
         //tools && config
         this.template('tools/qn.sh', { cdn: this.cdn });
@@ -90,7 +89,6 @@ module.exports = yeoman.generators.Base.extend({
 
         //libs
         this.template('js/app/config.js', { projectName: this.projectName, tjid: this.tjid, cnzz: this.cnzz, cdn: this.cdn });
-        this.template('js/track.js', { tjid: this.tjid });
 
         if (this.chat) {
             this.template('vendors/chat/socket.io.js', "js/lib/socket.io.js");

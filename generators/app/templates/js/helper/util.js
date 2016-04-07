@@ -46,9 +46,12 @@ define(['jquery', 'config'], function($, config) {
                 s.parentNode.insertBefore(hm, s);
             }
         },
-        cnzz:function(channelId, id) {
+        cnzz:function(channelId, id, server) {
             var cnzz = document.createElement("script");
-            cnzz.src = "//s11.cnzz.com/z_stat.php?id=" + config.cnzztj[channelId - 1] + "&web_id=" + config.cnzztj[channelId - 1];
+            if(typeof server == "undefined") {
+                server = 11;
+            }
+            cnzz.src = "//s" + server + ".cnzz.com/z_stat.php?id=" + config.cnzztj[channelId - 1] + "&web_id=" + config.cnzztj[channelId - 1];
             if(typeof id != "undefined") {
                 cnzz.id = id;
             } else {
