@@ -2,8 +2,6 @@ var gulp = require('gulp');
 var shell = require('gulp-shell');
 var tinypng = require('gulp-tinypng');
 var zip = require("gulp-zip");
-var uncss = require('gulp-uncss');
-var cleanCSS = require('gulp-clean-css');
 
 var paths = {
   scripts: ['js/**/*', 'css/*', 'font/*']
@@ -15,16 +13,6 @@ gulp.task('watch', function () {
   });
 });
 
-//去无用css
-gulp.task('uncss', function () {
-    return gulp.src('deploy/css/app.css')
-        .pipe(uncss({
-            html: ['index.html', 'http://localhost/<%= projectName%>/index.html']
-        }))
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest('deploy/css'));
-});
-
 //图片压缩
 gulp.task('tiny', function () {
 	gulp.src('images/*')
@@ -34,7 +22,7 @@ gulp.task('tiny', function () {
 
 //打包
 gulp.task('zip', function () {
-	gulp.src(["index.html", "bdtjcommon.html"], {base: "."})
+	gulp.src(["index.html"], {base: "."})
 		.pipe(zip('<%= projectName%>.zip'))
 		.pipe(gulp.dest('deploy'));
 });
@@ -47,12 +35,18 @@ gulp.task('compile', shell.task([
 ]));
 
 //编译
-gulp.task('build', gulp.series("compile", "uncss"));
+// gulp.task('build', gulp.series("compile", "uncss"));
 
 //发布
 gulp.task('publish', shell.task(
 	['tools/qn.sh']
 ));
 
+gulp.task('build', shell.task(
+	[
+		'gulp compile && gulp publish'
+	]
+));
+
 //一键发布
-gulp.task('deploy', gulp.series("build", "publish"));
+// gulp.task('deploy', gulp.series("build", "publish"));

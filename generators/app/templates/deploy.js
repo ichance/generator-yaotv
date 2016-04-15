@@ -17,7 +17,7 @@
     optimizeCss: "standard.keepLines",
     mainConfigFile: "js/app.js",
     removeCombined: true,
-    fileExclusionRegExp: /^node_modules*|^tools*|^tpl*|^deploy\.js|^gulpfile\.js|^package\.json|^index\S+\.html|^r\.js|^\.sublime*/,
+    fileExclusionRegExp: /^node_modules*|^tools*|^tpl*|^deploy\.js|^gulpfile\.js|^package\.json|^index\S+\.html|^r\.js|^\.sublime*|\.zip$/,
     name: "app",
     dir: "deploy"
 }
