@@ -34,9 +34,6 @@ gulp.task('compile', shell.task([
 	'echo 执行完成'
 ]));
 
-//编译
-// gulp.task('build', gulp.series("compile", "uncss"));
-
 //发布
 gulp.task('publish', shell.task(
 	['tools/qn.sh']
@@ -47,6 +44,3 @@ gulp.task('build', shell.task(
 		'gulp compile && gulp publish'
 	]
 ));
-
-//一键发布
-// gulp.task('deploy', gulp.series("build", "publish"));
