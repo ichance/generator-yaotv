@@ -1,12 +1,6 @@
 {
   "dependencies": {
     "gulp":"3.9.0",
-    "gulp-shell": "^0.5.1",
-    "gulp-tinypng": "1.0.2",
-    "gulp-uncss": "^1.0.4",
-    "gulp-zip": "^3.2.0"
-  },
-  "devDependencies": {
-    "gulp-clean-css": "^2.0.3"
+    "gulp-shell": "^0.5.1"
   }
 }

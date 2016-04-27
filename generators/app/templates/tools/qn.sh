@@ -6,7 +6,7 @@ BUCKET="yaotv";
 QNHTTP="http://o0vslv5hc.qnssl.com/";
 QNHTTPS="https://o0vslv5hc.qnssl.com/";
 KEYPREFIX="<%= cdn%>/";
-FILES=("css/app.css" "js/app.js" "js/track.js" "font/super.woff");
+FILES=("css/app.css" "js/app.js");
 LIST='';
 
 #执行shell，上传数据
