@@ -32,6 +32,25 @@ define(['jquery', 'config'], function($, config) {
         print: function(msg) {
             console.log(msg);
         },
+        /**
+         * 封装统计方法
+         * @param  {[type]} category [description]
+         * @param  {[type]} action   [description]
+         * @param  {[type]} label    [description]
+         * @param  {[type]} attr     [description]
+         * @return {[type]}          [description]
+         */
+        tj:function(category, action, label, attr) {
+            if(typeof attr == "undefined") {
+                attr = "default";
+            }
+            // if(typeof _czc != "undefined") {
+            //     _czc.push(["_trackEvent", category, action, label, '1', attr]);
+            // }
+            if(typeof _hmt != "undefined") {
+                _hmt.push(['_trackEvent', category, action, label, attr, '1']);
+            }
+        },
         track: function(channelId, id) {
             var _hmt = _hmt || [];
             var hm = document.createElement("script");
@@ -65,17 +84,8 @@ define(['jquery', 'config'], function($, config) {
         parseUrl: function() {
             return location.search;
         },
-        /**
-         * 获取预约配置
-         * @return {[type]} [description]
-         */
-        getReserve:function() {
-            this.getApi("//s3.chancemedia.com.cn:8001/reserve?app=" + config.appcode, function(reserve) {
-                if(typeof reserve.date != "undefined") {
-                    config.tv.reserveid = reserve.reserveid;
-                    config.tv.date = reserve.date;
-                }
-            });
+        getMainUrl:function() {
+            return window.location.href.split('?')[0];
         },
         getUrl:function(page) {
             var search = location.search;

@@ -29,6 +29,7 @@ define(['jquery', 'util', "pages/loading", "config", 'pages/index', 'history'], 
             } else {
                 self.page(newPage);
             }
+            config.shareData.url = "https://yao.qq.com/tv/entry?redirect_uri=" + util.getMainUrl();
             shaketv.wxShare(config.shareData.img,config.shareData.title,config.shareData.desc,config.shareData.url);
         },
         

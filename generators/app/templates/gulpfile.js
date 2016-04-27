@@ -28,7 +28,7 @@ gulp.task('zip', function () {
 });
 
 //编译
-gulp.task('compile', shell.task([
+gulp.task('build', shell.task([
 	'echo 开始发布任务...',
 	'node r.js -o deploy.js',
 	'echo 执行完成'
@@ -39,7 +39,7 @@ gulp.task('publish', shell.task(
 	['tools/qn.sh']
 ));
 
-gulp.task('build', shell.task(
+gulp.task('deploy', shell.task(
 	[
 		'gulp compile && gulp publish'
 	]

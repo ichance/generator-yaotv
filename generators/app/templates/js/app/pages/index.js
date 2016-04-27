@@ -16,7 +16,12 @@ define(["jquery", "util", "pages/loading", "config", "ready"], function($, util,
             loading.init();
 
             //全局预约按钮监听
-            util.getReserve();
+            util.getApi("//cdn.chancemedia.com.cn/wx/oauth/tv/smgreserve.php?appcode="+config.chatApp.appcode+"&jiemu=" + config.appName, function(reserve) {
+                if(typeof reserve.date != "undefined") {
+                    config.tv.reserveid = reserve.reservid;
+                    config.tv.date = reserve.date;
+                }
+            });
             $(".yuyue").on("click", function() {
                 shaketv.reserve_v2({
                     tvid: config.tv.tvid,

@@ -21,17 +21,6 @@ body{background: transparent;}
 .orientation-tips{height:100%;line-height:100%; font-size: 1.4em; color:#fff; text-align: center;}
 .orientation-tips span{display: block; position: absolute; top:50%; left:50%; margin-top: -0.6em; margin-left: -5em;}
 
-@font-face{font-family:'super';src:url('//dn-shaketv.qbox.me/yaotv/supermenu/font/super.woff?jsv3hp')  format('woff');font-weight:normal;font-style:normal;}
-[class^="icon-"],[class*=" icon-"]{font-family:'super'!important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-.icon-menu:before{content:"\e906";}
-.icon-clock:before{content:"\e907";}
-.icon-search:before{content:"\e905";}
-.icon-user:before{content:"\e900";}
-.icon-home:before{content:"\e901";}
-.icon-play:before{content:"\e902";}
-.icon-list:before{content:"\e903";}
-.icon-head:before{content:"\e904";}
-
 .wrapper{margin:0px auto; overflow: hidden; width: 100%;}
 
 .flex-item{display:flex; justify-content:space-around;align-items: center;}
